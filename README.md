@@ -61,7 +61,7 @@
 
 `\Carbon\Carbon::setTestNow(\Carbon\Carbon::parse('2017-08-15T15:52:01+00:00'));`
 
-
+Для запуска:
 
 `docker rm -f $(docker ps -qa)`
 
