@@ -3,7 +3,7 @@
 Требуется спроектировать модуль расчета стоимости доставки.
 Есть две службы доставки:
 1. «Быстрая доставка»:
-   ```json
+   ```
    base_url: string
    @var sourceKladr string //кладр откуда везем
    @var targetKladr string //кладр куда везем
@@ -18,7 +18,7 @@
    ```
 2. «Медленная доставка»:
    имеет базовую стоимость 150р
-    ```json
+    ```
     base_url: string
     @var sourceKladr string //кладр откуда везем
     @var targetKladr string //кладр куда везем
@@ -37,7 +37,7 @@
 Задача в том, чтобы получить для набора отправлений стоимость и сроки
 доставки в контексте списка транспортных компаний и одной выбранной. Формат
 полученных от транспортных компаний данных должен быть приведен к единому виду.
-```json
+```
 
 {
 "price": float //стоимость
@@ -58,17 +58,15 @@
 и версию использованной БД.
 
 
-`Ключ можно изменить в конфиге newsapi.key`
-
 `docker rm -f $(docker ps -qa)`
 
 `docker compose up --build`
 
-`docker exec -it crypto-backend php artisan queue:work --tries=1 --memory=50 --timeout=3600`
+`docker exec -it delivery-backend php artisan queue:work --tries=1 --memory=50 --timeout=3600`
 
-`docker exec -it crypto-backend php artisan migrate --seed`
+`docker exec -it delivery-backend php artisan migrate --seed`
 
-`docker exec -it crypto-backend ./vendor/bin/phpunit`
+`docker exec -it delivery-backend ./vendor/bin/phpunit`
 
 
 
