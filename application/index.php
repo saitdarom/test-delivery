@@ -23,10 +23,10 @@ $packages = [
 ];
 
 $deliveryResponses = [];
-
 foreach ($packages as $package) {
     $deliveryResponses[] = $package->getDelivery();
 }
+
 dd($deliveryResponses);
 
 
