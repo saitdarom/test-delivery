@@ -57,16 +57,20 @@
 например), при использовании БД приложить дампы созданных таблиц и указать тип
 и версию использованной БД.
 
+Для изменеия текущего времени нужно изменить строчку в файле index.php:
+
+`\Carbon\Carbon::setTestNow(\Carbon\Carbon::parse('2017-08-15T15:52:01+00:00'));`
+
+
 
 `docker rm -f $(docker ps -qa)`
 
 `docker compose up --build`
 
-`docker exec -it delivery-backend php artisan queue:work --tries=1 --memory=50 --timeout=3600`
+`docker exec -it delivery-backend composer install`
 
-`docker exec -it delivery-backend php artisan migrate --seed`
+`http://localhost:80`
 
-`docker exec -it delivery-backend ./vendor/bin/phpunit`
 
 
 

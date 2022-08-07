@@ -1,9 +1,32 @@
 <?php
-
+declare(strict_types=1);
 
 require __DIR__ . '/vendor/autoload.php';
 
-use \App\DTO\LongDelivery\RequestDTO;
+use \App\DTO\DeliveryRequestDTO;
+use \App\Packages\Package;
 
-$Server = new RequestDTO(['ss'=>'sad']);
-dd($Server);
+\Carbon\Carbon::setTestNow(\Carbon\Carbon::parse('2017-08-15T15:52:01+00:00'));
+//\Carbon\Carbon::setTestNow(\Carbon\Carbon::parse('2017-08-15T18:52:01+00:00'));
+
+$packages = [
+
+    new Package(1,
+        new \App\DeliveryCompanies\LongDeliveryCompany(),
+        new DeliveryRequestDTO('10001', '10002', 10)),
+
+
+    new Package(2,
+        new \App\DeliveryCompanies\FastDeliveryCompany(),
+        new DeliveryRequestDTO('10001', '10002', 12)),
+
+];
+
+$deliveryResponses = [];
+
+foreach ($packages as $package) {
+    $deliveryResponses[] = $package->getDelivery();
+}
+dd($deliveryResponses);
+
+

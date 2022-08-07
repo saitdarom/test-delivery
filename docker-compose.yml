@@ -22,17 +22,5 @@ services:
             dockerfile: Dockerfile
         volumes:
             - ./application:/application
-        links:
-            - postgres
 
-    postgres:
-        restart: always
-        build: docker/postgres
-        hostname: postgres
-        ports:
-            - "5432:5432"
-        volumes:
-            - ./docker/postgres/data:/var/lib/postgresql/data
-        environment:
-            POSTGRES_USER: postgres
-            POSTGRES_PASSWORD: postgres
+
