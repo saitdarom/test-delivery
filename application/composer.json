@@ -1,0 +1,15 @@
+{
+    "prefer-stable": true,
+    "require": {
+        "saitdarom/mut-simpla-parser": "dev-master"
+    },
+    "require-dev": {
+        "larapack/dd": "1.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    }
+
+}
